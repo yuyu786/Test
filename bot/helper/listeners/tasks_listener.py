@@ -69,7 +69,13 @@ class MirrorLeechListener:
         self.linkslogmsg = None
         self.botpmmsg = None
         self.upload_details = {}
-        self.source_url = source_url if source_url and source_url.startswith('http') else ("https://t.me/share/url?url=" + source_url) if source_url else message.link
+        self.source_url = (
+            source_url
+            if source_url and source_url.startswith('http')
+            else f"https://t.me/share/url?url={source_url}"
+            if source_url
+            else message.link
+        )
         self.source_msg = ''
         self.__setModeEng()
         self.__parseSource()
