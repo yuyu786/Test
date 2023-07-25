@@ -114,8 +114,8 @@ class DbManger:
         data = user_data[user_id]
         if data.get('thumb'):
             del data['thumb']
-        if data.get('rclone'):
-            del data['rclone']
+        if data.get('bridi'):
+            del data['bridi']
         await self.__db.users.replace_one({'_id': user_id}, data, upsert=True)
         self.__conn.close
 
